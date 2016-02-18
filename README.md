@@ -7,7 +7,7 @@ Synchronize cookie without blocking UI using transparent SFSafariViewController.
 
 ## Usage
 
-### 0. Throwing 2 codes into your code base
+### 0. Throwing 2 files into your code base
 
 Put `KTRCookieSyncManager.h`, `KTRCookieSyncManager.m` into your xcodeproj.
 
@@ -20,6 +20,10 @@ The URL scheme format is as follows.
 `any_scheme://sync?token={token}&secret={secret}`
 
 You should get `secret` from hash(`#`) since the library appends the secret key after `#`.
+
+```js
+window.location.href = "YOUR_SCHEME://sync?token=PASS_SOME_COOKIES_YOU_WANT&secret=" + location.hash.replace("#", "");
+```
 
 ### 2. Put `- handleOpenURL` to your `AppDelegate`'s `- application:openURL:options:`
 
